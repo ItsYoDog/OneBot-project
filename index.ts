@@ -1,5 +1,6 @@
-//testing
 import DiscordJS, { Intents } from "discord.js"
+import WOKcommands from "wokcommands"
+import path from "path"
 import dotenv from "dotenv"
 dotenv.config()
 
@@ -15,7 +16,12 @@ console.log("OneBot is attempting to load client...")
 client.on("ready", () => {
   console.log("OneBot is ready to login.")
 
-  console.log("Loading scripts...")
+  console.log("Loading commands...")
+
+  new WOKcommands(client, {
+    commandsDir: path.join(__dirname, "commands"),
+    typescript: true
+  })
 
   const guildId = "894227369483726930"
   const guild = client.guilds.cache.get(guildId)
@@ -70,5 +76,5 @@ client.on("interactionCreate", async (interaction) => {
 })
 
 console.log("Scripts loaded! Attempting to inject code...")
-client.login("OTkzNDM4MjQ0MjA3MzMzMzg2.GPl-9Q.tCDEBYcX3vgLz88p-3WfEpod690BnIjF7oDClk")
-console.log(process.env.TOKEN)
+client.login(process.env.TOKEN)
+console.log("Token: "+  process.env.TOKEN)

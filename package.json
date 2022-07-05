@@ -1,8 +1,8 @@
 {
   "type": "module",
   "name": "onebot-project",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.1 Pre-release",
+  "description": "OneBot for all your needs",
   "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
